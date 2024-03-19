@@ -27,6 +27,18 @@ class SupplierResource extends Resource
                     ->label('Supplier Name')
                     ->required()
                     ->maxLength(255),
+                Forms\Components\TextInput::make('supplier_address')
+                    ->label('Supplier Address')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\TextInput::make('supplier_phone')
+                    ->label('Supplier Phone')
+                    ->required()
+                    ->maxLength(255),
+                Forms\Components\Textarea::make('remarks')
+                    ->label('Remarks')
+                    ->required()
+                    ->maxLength(255),
             ]);
 
     }
@@ -37,6 +49,15 @@ class SupplierResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('supplier_name')
                     ->label('Supplier Name')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('supplier_address')
+                    ->label('Supplier Address')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('supplier_phone')
+                    ->label('Supplier Phone')
+                    ->searchable(),
+                Tables\Columns\TextColumn::make('remarks')
+                    ->label('Remarks')
                     ->searchable(),
             ])
             ->filters([
